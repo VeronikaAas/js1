@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="common.css">
-    <link rel="Icon" type="png" sizes="16x16" href="/assets/rainydayslogo.png">
-    <script defer scr="script.js"></script>
+    <link rel="Icon" type="png" sizes="16x16" href="/assets/GameHub_Logo.png">
+    <script type="module" src="./JS/index.mjs"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:SHLN@37&family=Lemonada&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>GameHub</title>
 </head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <header class="sidebar-header">
+                <button class="sidebar-burger" onclick="toggleSidebar()"></button>
+                <img src="/assets/GameHub_Logo.png" class="sidebar-logo">
+            </header>
+            <nav class="sidebar-nav">
+                <!--Buttons sidebar-->
+                <button type="button">
+                    <span style="animation-delay: 0.1s">My account</span>
+                </button>
+                <button type="button">
+                    <span style="animation-delay: 0.1s">Selling</span>
+                </button>
+                <button type="button">
+                    <span style="animation-delay: 0.1s">Buying</span>
+                </button>
+                <button type="button">
+                    <span style="animation-delay: 0.1s">Contact us</span>
+                </button>
+            </nav>
+        </div>
+    </aside>
+    <script type="text/javascript">
+        const toggleSidebar = () => document.body.classList.toggle("open");
+    </script>
+</body>
 
