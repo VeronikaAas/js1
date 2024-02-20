@@ -15,6 +15,35 @@
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <title>Checkout</title>
 </head>
-
-<h1>Checkout</h1>
-<id
+<body>
+    <button class="burger" onclick="toggleMenu()"></button>
+    <div class="menu">
+      <div></div>
+      <div style="transition-delay: 0.1s"></div>
+      <div style="transition-delay: 0.2s"></div>
+      <div style="transition-delay: 0.3s"></div>
+      <div style="transition-delay: 0.4s"></div>
+      <div style="transition-delay: 0.5s"></div>
+      <ul>
+        <li style="animation-delay: 0.4s">
+          <a href="/index.html">Home</a>
+        </li>
+        <li style="animation-delay: 0.5s">
+          <a href="/myaccount.html">My Account</a>
+        </li>
+        <li style="animation-delay: 0.6s">
+          <a href="/selling.html">Selling</a>
+        </li>
+        <li style="animation-delay: 0.7s">
+          <a href="/buying.html">Buying</a>
+        </li>
+        <li style="animation-delay: 0.8s"> 
+          <a href="/shoppingcart.html">Shopping cart</a>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      const toggleMenu = () => document.body.classList.toggle("open");
+    </script>
+</body>
+</html>

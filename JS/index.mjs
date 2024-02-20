@@ -18,27 +18,14 @@ function addToCart (game) {
     });
 
     if (itemIndex === -1) {
-        cart.push({...game, quantity: 1});
+        cart.push({ ...game, quantity: 1 });
     } else {
-        cart[itemIndex].quantity +=1;
+        cart[itemIndex].quantity += 1;
     }
     localStorage.setItem('cart', JSON.stringify (cart));
 }
 
-/*
-<div class="game-wrapper">
-    <div class="game-container">
-        <h3>Assassin</h3>
-        <div class ="game-price-container">
-        <div>Discounted Price: 13.49</div>
-        </div>
-    </div>
-</div>
-*/
-
-
 function generateGameHtml(game) {
-    // Returns game HTML
     const gameWrapper = document.createElement('div');
     gameWrapper.classList.add('game-wrapper');
 
@@ -49,7 +36,7 @@ function generateGameHtml(game) {
     heading.textContent = game.title;
 
     const gamePriceContainer = document.createElement('div');
-    gamePriceContainer.classList.add('gamePriceConainer')
+    gamePriceContainer.classList.add('gamePriceContainer');
 
     const gamePrice = document.createElement('div');
     gamePrice.textContent = game.price;
@@ -61,12 +48,12 @@ function generateGameHtml(game) {
     gameBuyButton.textContent = 'Buy';
     gameBuyButton.classList.add('game-buy-button');
     gameBuyButton.addEventListener('click', () => {
-        addToCart
-        console.log('id, game.id')
-    })
+        addToCart(game);
+
+    });
 
     gamePriceContainer.append(gamePrice, gameDiscountedPrice);
-    gameContainer.append(heading, gamePriceContainer, gameBuyButton)
+    gameContainer.append(heading, gamePriceContainer, gameBuyButton);
     gameWrapper.appendChild(gameContainer);
 
     return gameWrapper;
@@ -75,11 +62,9 @@ function generateGameHtml(game) {
 
 function displayGames(games) {
     const displayContainer = document.getElementById('games-display');
-    displayContainer.textContent ='';
-    games.forEach(function (game) {
+    games.forEach((game) => {
         const gameHtml = generateGameHtml(game);
         displayContainer.appendChild(gameHtml);
-        console.log (gameHtml)
         
     });
 
@@ -93,5 +78,4 @@ async function main() {
 
 }
 
-
-main()
+main();
