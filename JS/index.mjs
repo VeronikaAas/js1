@@ -24,14 +24,14 @@ function generateGameHtml(game) {
     const gameWrapper = document.createElement('div');
     gameWrapper.classList.add('game-wrapper');
 
-    const gameWrapper = document.createElement('div');
-    gameWrapper.classList.add('game-container');
+    const gameContainer = document.createElement('div');
+    gameContainer.classList.add('game-container');
 
     const heading = document.createElement('h3');
     heading.textContent = game.title;
 
     const gamePriceContainer = document.createElement('div');
-    gamePriceContainer.classList.add('')
+    gamePriceContainer.classList.add('gamePriceConainer')
 
     const gamePrice = document.createElement('div');
     gamePrice.textContent = game.price;
@@ -45,9 +45,11 @@ function generateGameHtml(game) {
 }
 
 function displayGames(games) {
-    console.log(games);
-    games.forEach((game) => {
+    const displayContainer = document.querySelector('#displayContainer')
+    console.log (displayContainer);
+    games.forEach(function (game) {
         const gameHtml = generateGameHtml(game);
+        console.log (gameHtml);
         
     });
 
