@@ -1,9 +1,3 @@
-// Main idea: display items for our GameHub api
-// 1. Get the data
-// 2. Loop through data
-// 3. Create HTML for the individual items
-// Append the HTML to the document
-
 import { API_GAMES_URL } from "./constants.mjs"
 import { doFetch } from "./doFetch.mjs"
 
@@ -40,16 +34,21 @@ function generateGameHtml(game) {
     gameDiscountedPrice.textContent = game.discountedPrice;
 
     gamePriceContainer.append(gamePrice, gameDiscountedPrice);
-    return gameContainer;
+    gameContainer.append(heading, gamePriceContainer, gameBuyButton)
+    gameWrapper.appendChild(gameContainer);
+
+    return gameWrapper;
 
 }
 
 function displayGames(games) {
-    const displayContainer = document.querySelector('#displayContainer')
+    const displayContainer = document.getElementById('games-display);
+    displayContainer.textContent ='';
     console.log (displayContainer);
     games.forEach(function (game) {
         const gameHtml = generateGameHtml(game);
-        console.log (gameHtml);
+        displayContainer.appendChild(gameHtml);
+        console.log (gameHtml)
         
     });
 
