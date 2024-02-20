@@ -76,7 +76,6 @@ function generateGameHtml(game) {
 function displayGames(games) {
     const displayContainer = document.getElementById('games-display');
     displayContainer.textContent ='';
-    console.log (displayContainer);
     games.forEach(function (game) {
         const gameHtml = generateGameHtml(game);
         displayContainer.appendChild(gameHtml);
