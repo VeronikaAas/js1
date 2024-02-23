@@ -1,0 +1,63 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  label {
+    color: hotpink;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family: dotgothic16, dot;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid cyan;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #444;
+    font-size: 16px;
+    font-family: dotgothic16, dot;
+  }
+  
+  .submitbutton {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: hotpink;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: dotgothic16, dot;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .submitbutton:hover {
+    background-color: cyan;
+  }
+
+  .text-container {
+    text-align: center;
+  }
+
+  h1, h2, h3, p {
+    display: inline-block;
+    margin-right: -4px;
+  }

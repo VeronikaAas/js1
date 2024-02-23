@@ -1,125 +1,60 @@
-h1 {
-    font-family: Honk, DotGothic16, dot;
-    font-size: 5rem;
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-    margin-bottom: 0%;
-    margin-left: 1%;
+.container {
+    padding: 2rem;
 }
 
-h2 {
-    font-family: DotGothic16, dot;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    margin-top: 0%;
-    margin-left: 1%;
+.slider-wrapper {
+    position: relative;
+    max-width: 48rem;
+    height: auto;
+    margin: 0 auto;
+
 }
 
-body {
-    margin: 0;
-    display: grid;
-    font-family: DotGothic16, dot;
-    height: 100vh;
-    background: url(/assets/background.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #f9f9f9;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 20px;
-  }
-  
-  ul li {
+.slider {
+    display: flex;
+    aspect-ratio: 16/9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25%);
+    border-radius: 0.5rem;
+
+}
+
+.slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: contain;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+.title {
     text-align: center;
   }
-  
-  label {
-    height: 100vh;
-    cursor: pointer;
-  }
-  
-  input {
-    position: absolute;
-    scale: 0;
-  }
-  
-  body.open .burger {
-    background-image: url(/assets/close.svg);
-  }
-  
-  .burger {
-    position: fixed;
-    z-index: 2;
-    display: grid;
-    width: 80px;
-    height: 80px;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    background-image: url(/assets/menu.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 30%;
-    cursor: pointer;
-    transition: 0.175s;
-  }
-  
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 6px;
-    display: grid;
-    transition: 0.3s;
-  }
-  
-  .menu > div {
-    background: #030108;
-    translate: -100% 0;
-    transition: 0.2s ease-in-out;
-  }
-  
-  body.open .menu > div {
-    translate: 0;
-  }
-  
-  @keyframes appear {
-    0% {
-      opacity: 0;
-      translate: 0 20px;
-    }
-    100% {
-      opacity: 1;
-      translate: 0;
-    }
-  }
-  
-  .menu ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    opacity: 0;
-    transition: 0.3s;
-  }
-  
-  body.open .menu ul {
-    opacity: 1;
-  }
-  
-  body.open .menu ul li {
-    animation: appear 0.4s both;
+
+  h1, h2, h3, p {
+    display: inline-block;
+    margin-right: -4px;
   }

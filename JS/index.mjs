@@ -1,6 +1,11 @@
 import { API_GAMES_URL } from "./constants.mjs";
 import { doFetch } from "./doFetch.mjs";
 
+const clearCartButton = document.getElementById('clear-cart')
+clearCartButton.addEventListener('click') => {
+  clearCart();
+})
+
 function createCart() {
   const cart = localStorage.getItem("cart");
 

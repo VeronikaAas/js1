@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/selling.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="Icon" type="png" sizes="16x16" href="/assets/GameHub_Logo.png">
+    <script type="module" src="./JS/index.mjs"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:SHLN@37&family=Lemonada&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>Sell your loved games</title>
+</head>
+<header>
+  <nav>
+    <ul class="menu">
+        <li><a href="/HTML/index.html" class="button">Home</a></li>
+        <li><a href="/HTML/buying.html" class="button">Buying games</a></li>
+        <li><a href="/HTML/selling.html" class="button">Selling games</a></li>
+        <li><a href="/HTML/shoppingcart.html" class="button">Shopping cart</a></li>
+    </ul>
+</nav>
+<div class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropdown-content">
+       <a href="/HTML/index.html">Home</a>
+       <a href="/HTML/buying.html">Buying games</a>
+       <a href="/HTML/selling.html">Selling games</a>
+       <a href="/HTML/shoppingcart.html">Shopping cart</a>
+    </div>
+</div>
+</header>
+<body>
+  <div class="text-container">
+    <h1>Sell your loved game</h1>
+    <h2>Are your games collecting dust? Sell them here to a new home where love is and save you tons vacuuming.</h2>
+    <h3>Fill in the form below and you will see your game under the "buy" section very soon.</h3>
+    <p>Please allow for some time to verify your sale, it is for you and the buyer's safety. We care for our community and want everyone to have a pleasant experience using our site. If you have any questions in the meantime, please contact us by using our contact form or send us an email at contact@gamehub.com</p>
+  </div>
+    <form action="#" method="post">
+      <label for="gameTitle">Game Title:</label>
+      <input type="text" id="gameTitle" placeholder="Call of Duty"><br>
+
+      <label for="yearOfRelease">Year of release:</label>
+      <input type="text" id="yearOfRelease" placeholder="2024"><br>
+
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" placeholder="FPS" required><br>
+
+      <label for="keyOrPhysicalCopy">Key or physical copy?</label>
+      <select name="keyOrPhysicalCopy" id="keyOrPhysicalCopy">
+        <option value="">Select an option</option>
+        <option value="key">Key</option>
+        <option value="Physical copy">Physical copy</option>
+      </select><br>
+
+      <label for="condition">Conditon:</label>
+      <select name="condition" id="condition">
+        <option value="">Select an option</option>
+        <option value="new">New</option>
+        <option value="good">Good as new</option>
+        <option value="used">Used, but good</option>
+        <option value="fine">Fine</option>
+      </select> <br>
+      <a href="/HTML/sellingcomplete.html" class="submitbutton">Submit game</a>
+    </form>
+</body>
+</html>

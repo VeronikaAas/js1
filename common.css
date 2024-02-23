@@ -1,125 +1,129 @@
+body {
+  background-image: url(/assets/background.jpg);
+  repeat: repeat;
+}
+
 h1 {
-    font-family: Honk, DotGothic16, dot;
-    font-size: 5rem;
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-    margin-bottom: 0%;
-    margin-left: 1%;
+  font-family: honk, dotgothic16, dot;
+  font-size: 3rem;
+  padding: 0;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
-    font-family: DotGothic16, dot;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    margin-left: 1%;
+  font-family: dotgothic16, dot;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body {
-    margin: 0;
-    display: grid;
-    font-family: DotGothic16, dot;
-    height: 100vh;
-    background: url(/assets/background.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: repeat;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #f9f9f9;
-  }
-  
+h3 {
+  font-family: dotgothic16, dot;
+  font-size: 1rem;
+  padding: 0;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-family: dotgothic16, dot;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-family: dotgothic16, dot;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px 20px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: cyan;
+  color: black;
+}
+
+.dropdown {
+  display: none;
+}
+
+
+@media screen and (max-width: 600px) {
   ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 20px;
+      display: none;
   }
-  
-  ul li {
-    text-align: center;
+  .dropdown {
+      display: inline-block;
+      margin-left: 25%;
   }
-  
-  label {
-    height: 100vh;
-    cursor: pointer;
+     
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: darkorange;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px whitesmoke;
+  z-index: 1;
   }
-  
-  input {
-    position: absolute;
-    scale: 0;
+     
+  .dropdown-content a {
+  color: whitesmoke;
+  font-family: dotgothic16, dot;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
   }
-  
-  body.open .burger {
-    background-image: url(/assets/close.svg);
+     
+  .dropdown-content a:hover {background-color: darkorange; color: whitesmoke}
+     
+  .dropdown:hover .dropdown-content {
+  display: block;
   }
-  
-  .burger {
-    position: fixed;
-    z-index: 2;
-    display: grid;
-    width: 80px;
-    height: 80px;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    background-image: url(/assets/menu.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 30%;
-    cursor: pointer;
-    transition: 0.175s;
-  }
-  
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 6px;
-    display: grid;
-    transition: 0.3s;
-  }
-  
-  .menu > div {
-    background: #030108;
-    translate: -100% 0;
-    transition: 0.2s ease-in-out;
-  }
-  
-  body.open .menu > div {
-    translate: 0;
-  }
-  
-  @keyframes appear {
-    0% {
-      opacity: 0;
-      translate: 0 20px;
-    }
-    100% {
-      opacity: 1;
-      translate: 0;
-    }
-  }
-  
-  .menu ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    opacity: 0;
-    transition: 0.3s;
-  }
-  
-  body.open .menu ul {
-    opacity: 1;
-  }
-  
-  body.open .menu ul li {
-    animation: appear 0.4s both;
+     
+  .dropdown:hover .dropbtn {
+  background-color: darkorange;
+  color: whitesmoke;
   }
 
+  .dropdown-content {
+      width: 100%;
+  }
+  .opening {
+      width: 96vw;
+  }
+
+  .dropbtn {
+    background-color: darkorange;
+    color: white; 
+    border: hotpink 2px solid;
+    width: 100px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+}
