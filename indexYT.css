@@ -60,6 +60,13 @@ header{
     letter-spacing: 7px;
     font-size: small;
 }
+
+.listProduct .item .discountedPrice  {
+    letter-spacing: 7px;
+    font-size: small;
+    color: hotpink;
+}
+
 .listProduct .item button{
     background-color: #353432;
     color: #eee;

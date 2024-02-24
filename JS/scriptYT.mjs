@@ -16,10 +16,7 @@ closeCart.addEventListener('click', () => {
 })
 
     const addDataToHTML = () => {
-    // remove datas default from HTML
-
-        // add new datas
-        if(products.length > 0) // if has data
+        if(products.length > 0)
         {
             products.forEach(product => {
                 let newProduct = document.createElement('div');
@@ -27,8 +24,9 @@ closeCart.addEventListener('click', () => {
                 newProduct.classList.add('item');
                 newProduct.innerHTML = 
                 `<img src="${product.image.url}" alt="${product.image.alt}">
-                <h2>${product.name}</h2>
-                <div class="price">$${product.price}</div>
+                <h2>${product.title}</h2>
+                <div class="price">${product.price}</div>
+                <div class="discountedPrice">${product.discountedPrice}</div>
                 <button class="addCart">Add To Cart</button>`;
                 listProductHTML.appendChild(newProduct);
             });
@@ -77,12 +75,12 @@ const addCartToHTML = () => {
             listCartHTML.appendChild(newItem);
             newItem.innerHTML = `
             <div class="image">
-                    <img src="${info.image}">
+                    <img src="${info.image.url}" alt="${info.image.alt}">
                 </div>
                 <div class="name">
-                ${info.name}
+                ${info.title}
                 </div>
-                <div class="totalPrice">$${info.price * item.quantity}</div>
+                <div class="totalPrice">$${info.discountedPrice * item.quantity}</div>
                 <div class="quantity">
                     <span class="minus"><</span>
                     <span>${item.quantity}</span>
@@ -129,14 +127,14 @@ const changeQuantityCart = (product_id, type) => {
 }
 const initApp = async () => {
     try {
-        const response = await fetch('https://v2.api.noroff.dev/gamehub');
-        const data = await response.json();
-        products = data;
-        console.log('products', products);
-        addDataToHTML();
+      const response = await fetch("https://v2.api.noroff.dev/gamehub");
+      const data = await response.json();
+      products = data.data;
+      console.log("products", products);
+      addDataToHTML();
     } catch (error) {
-        console.log('Error fetching products:', error);
+      console.log("Error fetching products:", error);
     }
-}
-
-initApp();
+  };
+  
+  initApp();
