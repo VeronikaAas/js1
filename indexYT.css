@@ -98,14 +98,14 @@ body.showCart .container{
     grid-template-columns: repeat(2, 1fr);
 }
 .cartTab button{
-    background-color: #E8BC0E;
+    background-color: hotpink;
     border: none;
     font-family: dotgothic16, dot;
     font-weight: 500;
     cursor: pointer;
 }
 .cartTab .close{
-    background-color: #eee;
+    background-color: darkorange;
 }
 .listCart .item img{
     width: 100%;
