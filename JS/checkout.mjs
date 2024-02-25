@@ -28,7 +28,6 @@ function fetchCart() {
         <h1>${itemData.title}</h1>
         <p>${itemData.description}</p>
         <p>${itemData.price}</p>
-        <button class="btn">Add to cart</button>
       </div>
       `;
   }

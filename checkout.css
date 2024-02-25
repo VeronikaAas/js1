@@ -1,12 +1,31 @@
 img {
-    width: 400px;
+    width: 100px;
     max-width: 90%;
     height: auto;
-    float: left; 
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block;
 }
 
-h1, h2, p {
-    float: right;
+h1, p {
+    
+}
+
+.text-container,  img {
+    text-align: center;
+  }
+
+
+.btn {
+    background-color: darkorange;
+    border: none;
+    font-family: dotgothic16, dot;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
 }
 
 form {
@@ -61,13 +80,4 @@ form {
   
   .submitbutton:hover {
     background-color: cyan;
-  }
-
-  .text-container {
-    text-align: center;
-  }
-
-  h1, h2, h3, p {
-    display: inline-block;
-    margin-right: -4px;
   }
