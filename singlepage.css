@@ -1,10 +1,16 @@
 img {
-    width: 400px;
+    width: 200px;
     max-width: 90%;
     height: auto;
-    float: left; 
+    margin-right: 20px;
 }
 
-h1, h2, p {
-    float: right;
+.btn {
+    background-color: darkorange;
+    border: none;
+    font-family: dotgothic16, dot;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
 }

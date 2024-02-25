@@ -28,8 +28,7 @@ form {
     font-family: dotgothic16, dot;
   }
   
-  input[type="text"],
-  input[type="date"],
+  input[type="text"]
   select {
     width: 100%;
     padding: 10px;

@@ -1,13 +1,15 @@
 body {
   background-image: url(/assets/background.jpg);
   repeat: repeat;
+  margin: 0;
+  font-family: dotgothic16, dot;
 }
 
 h1 {
   font-family: honk, dotgothic16, dot;
   font-size: 3rem;
   padding: 0;
-  margin: 30px;
+  margin: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +48,6 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  width: 100vw;
 }
 
 li {
@@ -72,16 +73,15 @@ li a:hover {
   display: none;
 }
 
-
-@media screen and (max-width: 600px) {
-  ul {
-      display: none;
-  }
-  .dropdown {
-      display: inline-block;
-      margin-left: 25%;
-  }
-     
+.opening {
+  background-color: #A7C087;
+  display: flex;
+  width: 98vw;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  color: #2D3F2B;
+}     
   .dropdown-content {
   display: none;
   position: absolute;
@@ -126,4 +126,190 @@ li a:hover {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
   }
+
+.container{
+    width: 850px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 10px;
+    transition: transform .5s, top 5s;
 }
+svg{
+    width: 30px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.filter-btns{
+    text-align: center;
+}
+.filter-btn{
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 10px 30px;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.filter-btn::after{
+    content: "";
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: hotpink;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out
+}
+.filter-btn:hover{
+    color: hotpink;
+}
+.filter-btn:hover::after{
+    width: 100%;
+}
+.active-btn{
+    color: hotpink;
+}
+.active-btn::after{
+    width: 100%;
+}
+
+.filter-items{
+    margin-top: 40px;
+}
+
+.icon-cart{
+    position: relative;
+    cursor: pointer;
+}
+.icon-cart span{
+    position: absolute;
+    background-color: hotpink;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 50%;
+    right: -20px;
+}
+.title{
+    font-size: xx-large;
+}
+
+.cartTab{
+    width: 400px;
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: right .5s;
+}
+body.showCart .cartTab{
+    right: 0;
+}
+
+body.showCart .container{
+    transform: translateX(-250px, 0);
+}
+
+
+.cartTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+.cartTab .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.cartTab button{
+    background-color: hotpink;
+    border: none;
+    font-family: dotgothic16, dot;
+    font-weight: 600;
+    cursor: pointer;
+}
+.cartTab .close{
+    background-color: darkorange;
+}
+.listCart .item img{
+    width: 100%;
+}
+.listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+.listCart .quantity span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    cursor: auto;
+}
+.listCart .item:nth-child(even){
+    background-color: #eee1;
+}
+.listCart{
+    overflow: auto;
+}
+.listCart::-webkit-scrollbar{
+    width: 0;
+}
+@media only screen and (max-width: 992px) {
+    .listProduct{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+    .listProduct{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+  @media screen and (max-width: 600px) {
+    ul {
+        display: none;
+    }
+    .dropdown {
+        display: inline-block;
+        margin-left: 25%;
+    }
+  }
