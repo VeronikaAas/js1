@@ -1,0 +1,10 @@
+img {
+    width: 400px;
+    max-width: 90%;
+    height: auto;
+    float: left; 
+}
+
+h1, h2, p {
+    float: right;
+}

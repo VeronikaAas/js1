@@ -91,6 +91,7 @@ const addCartToHTML = () => {
                 </div>
             `;
         })
+        
     }
     iconCartSpan.innerText = totalQuantity;
     let subtotalElement = document.createElement('div');
@@ -98,6 +99,7 @@ const addCartToHTML = () => {
     subtotalElement.innerHTML = `Subtotal: $${subtotal}`;
     listCartHTML.appendChild(subtotalElement);
 }
+
 
 listCartHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
@@ -131,6 +133,16 @@ const changeQuantityCart = (product_id, type) => {
     }
     addCartToHTML();
     addCartToMemory();
+
+const checkoutBtn = document.getElementById("checkoutBtn");
+checkoutBtn.addEventListener("click", () => {
+  if (cart.length <= 0) {
+    alert("Your cart is empty");
+    return;
+  }
+  window.location.href = "/HTML/checkout.html";
+});
+
 }
 
 const initApp = async () => {

@@ -168,7 +168,7 @@ body.showCart .container{
     background-color: hotpink;
     border: none;
     font-family: dotgothic16, dot;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 .cartTab .close{

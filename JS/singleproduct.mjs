@@ -9,7 +9,22 @@ const singleProductUrl = `${url}${shopEndpoint}/${id}`;
 async function singleProductFetch() {
   const response = await fetch(singleProductUrl);
   const product = await response.json();
-  return product;
+  const item = product.data;
+  renderHtml(item);
 }
-const itemData = await singleProductFetch();
-console.log(itemData);
+
+singleProductFetch();
+
+function renderHtml(itemData) {
+  const productContainer = document.querySelector(".listProduct");
+  productContainer.innerHTML = `
+  <div class="product">
+    <img src="${itemData.image.url}" alt="${itemData.title}" />
+    <h1>${itemData.title}</h1>
+    <p>${itemData.description}</p>
+    <p>${itemData.price}</p>
+    <p>${itemData.ageRating}</p>
+    <button class="btn">Add to cart</button>
+  </div>
+  `;
+}
