@@ -16,29 +16,28 @@ closeCart.addEventListener('click', () => {
 })
 
 const addDataToHTML = () => {
-    if(products.length > 0)
-    {
-        products.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.dataset.id = product.id;
-            newProduct.classList.add('item');
-            newProduct.innerHTML = 
-            `<img src="${product.image.url}" alt="${product.image.alt}">
-            <h2>${product.title}</h2>
-            <div class="price">${product.price}</div>
-            <div class="discountedPrice">${product.discountedPrice}</div>
-            <button class="addCart">Add To Cart</button>`;
-            listProductHTML.appendChild(newProduct);
-        });
+    if (products.length > 0) {
+      products.forEach((product) => {
+        let newProduct = document.createElement("a");
+        newProduct.dataset.id = product.id;
+        newProduct.classList.add("item");
+        newProduct.innerHTML = `<a class="linkToGamePage" href="/HTML/singlepage.html?id=${product.id}"><img src="${product.image.url}" alt="${product.image.alt}"></a>
+              <h2>${product.title}</h2>
+              <div class="price">${product.price}</div>
+              <div class="discountedPrice">${product.discountedPrice}</div>
+              <button class="addCart">Add To Cart</button>`;
+        listProductHTML.appendChild(newProduct);
+      });
     }
-}
-    listProductHTML.addEventListener('click', (event) => {
-        let positionClick = event.target;
-        if(positionClick.classList.contains('addCart')){
-            let id_product = positionClick.parentElement.dataset.id;
-            addToCart(id_product);
-        }
-    });
+
+  };
+  listProductHTML.addEventListener("click", (event) => {
+    let positionClick = event.target;
+    if (positionClick.classList.contains("addCart")) {
+      let id_product = positionClick.parentElement.dataset.id;
+      addToCart(id_product);
+    }
+  });
 
 const addToCart = (product_id) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
@@ -139,11 +138,11 @@ const initApp = async () => {
       const response = await fetch("https://v2.api.noroff.dev/gamehub");
       const data = await response.json();
       products = data.data;
-      console.log("products", products);
       addDataToHTML();
     } catch (error) {
-      console.log("Error fetching products:", error);
     }
   };
   
   initApp();
+
+  
