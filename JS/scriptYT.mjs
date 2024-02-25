@@ -15,54 +15,30 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
 
-    const addDataToHTML = () => {
-        if(products.length > 0)
-        {
-            products.forEach(product => {
-                let newProduct = document.createElement('div');
-                newProduct.dataset.id = product.id;
-                newProduct.classList.add('item');
-                newProduct.innerHTML = 
-                `<img src="${product.image.url}" alt="${product.image.alt}">
-                <h2>${product.title}</h2>
-                <div class="price">${product.price}</div>
-                <div class="discountedPrice">${product.discountedPrice}</div>
-                <button class="addCart">Add To Cart</button>`;
-                listProductHTML.appendChild(newProduct);
-            });
-        }
-    }
-    listProductHTML.addEventListener('click', (event) => {
-        let positionClick = event.target;
-        if(positionClick.classList.contains('addToCart')){
-            let product_id = positionClick.parentElement.dataset.id;
-            viewProduct(product_id);
-        } else if (positionClick.classList.contains('addToCart')) {
-            let product_id = positionClick.parentElement.dataset.id;
-            addToCart(product_id)
-        }
-        });
-
-    const viewProduct = (product_id) => {
-        let product = products.find(product => product_id == product_id);
-        if (product) {
-            listProductHTML.innerHTML = '';
-            let productHTML = document.createElement('div');
-            productHTML.classList.add('product');
-            productHTML.innerHTML = `
-            <img src="${product.image.url}" alt="${product.image.alt}">
+const addDataToHTML = () => {
+    if(products.length > 0)
+    {
+        products.forEach(product => {
+            let newProduct = document.createElement('div');
+            newProduct.dataset.id = product.id;
+            newProduct.classList.add('item');
+            newProduct.innerHTML = 
+            `<img src="${product.image.url}" alt="${product.image.alt}">
             <h2>${product.title}</h2>
-            <div class="description">${product.description}</div>
-            <div class="released">${product.released}</div>
-            <div class="ageRating">${product.ageRating}</div>
             <div class="price">${product.price}</div>
             <div class="discountedPrice">${product.discountedPrice}</div>
-            <button class="addToCart">Add To Cart</button>
-            `;
-            listProductHTML.appendchild(productHTML);
+            <button class="addCart">Add To Cart</button>`;
+            listProductHTML.appendChild(newProduct);
+        });
+    }
+}
+    listProductHTML.addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if(positionClick.classList.contains('addCart')){
+            let id_product = positionClick.parentElement.dataset.id;
+            addToCart(id_product);
         }
-    };
-
+    });
 
 const addToCart = (product_id) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
@@ -88,6 +64,7 @@ const addCartToMemory = () => {
 const addCartToHTML = () => {
     listCartHTML.innerHTML = '';
     let totalQuantity = 0;
+    let subtotal = 0;
     if(cart.length > 0){
         cart.forEach(item => {
             totalQuantity = totalQuantity +  item.quantity;
@@ -98,6 +75,8 @@ const addCartToHTML = () => {
             let positionProduct = products.findIndex((value) => value.id == item.product_id);
             let info = products[positionProduct];
             listCartHTML.appendChild(newItem);
+            let totalPrice = info.discountedPrice * item.quantity.toFixed(2);
+            subtotal += totalPrice;
             newItem.innerHTML = `
             <div class="image">
                     <img src="${info.image.url}" alt="${info.image.alt}">
@@ -115,6 +94,10 @@ const addCartToHTML = () => {
         })
     }
     iconCartSpan.innerText = totalQuantity;
+    let subtotalElement = document.createElement('div');
+    subtotalElement.classList.add('subtotal');
+    subtotalElement.innerHTML = `Subtotal: $${subtotal}`;
+    listCartHTML.appendChild(subtotalElement);
 }
 
 listCartHTML.addEventListener('click', (event) => {
@@ -150,6 +133,7 @@ const changeQuantityCart = (product_id, type) => {
     addCartToHTML();
     addCartToMemory();
 }
+
 const initApp = async () => {
     try {
       const response = await fetch("https://v2.api.noroff.dev/gamehub");
