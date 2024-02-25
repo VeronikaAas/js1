@@ -28,6 +28,8 @@ closeCart.addEventListener('click', () => {
                 <div class="price">${product.price}</div>
                 <div class="discountedPrice">${product.discountedPrice}</div>
                 <button class="addCart">Add To Cart</button>`;
+
+                let image = newProduct.querySelector('img')
                 listProductHTML.appendChild(newProduct);
             });
         }
@@ -38,7 +40,32 @@ closeCart.addEventListener('click', () => {
             let id_product = positionClick.parentElement.dataset.id;
             addToCart(id_product);
         }
-    })
+    });
+
+    const viewProduct = (product_id) => {
+        let product = products.find(product => product_id == product_id);
+        if (product) {
+            listProductHTML.innerHTML = '';
+            let productHTML = document.createElement('div');
+            productHTML.classList.add('product');
+            productHTML.innerHTML = `
+            <img src="${product.image.url}" alt="${product.image.alt}">
+            <h2>${product.title}</h2>
+            <div class="description">${product.description}</div>
+            <div class="released">${product.released}</div>
+            <div class="ageRating">${product.ageRating}</div>
+            <div class="price">${product.price}</div>
+            <div class="discountedPrice">${product.discountedPrice}</div>
+            <button class="addToCart">Add To Cart</button>
+            `;
+            listProductHTML.appendchild(productHTML);
+            productHTML.querySelector('addToCart').addEventListener('click', () => {
+                addToCart(product_id);
+            });
+        }
+    };
+
+
 const addToCart = (product_id) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
     if(cart.length <= 0){
