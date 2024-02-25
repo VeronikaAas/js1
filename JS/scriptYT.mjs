@@ -34,11 +34,14 @@ closeCart.addEventListener('click', () => {
     }
     listProductHTML.addEventListener('click', (event) => {
         let positionClick = event.target;
-        if(positionClick.classList.contains('addCart')){
-            let id_product = positionClick.parentElement.dataset.id;
-            addToCart(id_product);
+        if(positionClick.classList.contains('addToCart')){
+            let product_id = positionClick.parentElement.dataset.id;
+            viewProduct(product_id);
+        } else if (positionClick.classList.contains('addToCart')) {
+            let product_id = positionClick.parentElement.dataset.id;
+            addToCart(product_id)
         }
-    });
+        });
 
     const viewProduct = (product_id) => {
         let product = products.find(product => product_id == product_id);
