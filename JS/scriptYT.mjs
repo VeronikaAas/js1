@@ -133,6 +133,7 @@ const changeQuantityCart = (product_id, type) => {
     }
     addCartToHTML();
     addCartToMemory();
+}
 
 const checkoutBtn = document.getElementById("checkoutBtn");
 checkoutBtn.addEventListener("click", () => {
@@ -142,8 +143,6 @@ checkoutBtn.addEventListener("click", () => {
   }
   window.location.href = "/HTML/checkout.html";
 });
-
-}
 
 const initApp = async () => {
     try {

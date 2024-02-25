@@ -1,28 +1,34 @@
-function fetchCart() {
-    const cartItem = localStorage.getItem("cart");
-    const cart = JSON.parse(cartItem);
-  
-    for (let i = 0; i < cart.length; i++) {
-      const cartItemId = cart[i].product_id;
-      cartFetch(cartItemId);
-    }
+async function fetchCart() {
+  const cartItem = localStorage.getItem("cart");
+  const cart = JSON.parse(cartItem);
+
+  let cartTotal = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    const item = cart[i];
+    const product = await getProduct(cart[i].product_id);
+    const totalPrice = product.discountedPrice * item.quantity.toFixed(2);
+    cartTotal += totalPrice;
+    renderHtml(product);
   }
-  
-  async function cartFetch(itemId) {
-    const url = "https://v2.api.noroff.dev";
-    const shopEndpoint = "/gamehub";
-    const cartUrl = `${url}${shopEndpoint}/${itemId}`;
-    const response = await fetch(cartUrl);
-    const cart = await response.json();
-    const items = cart.data;
-    console.log(items);
-    renderHtml(items);
-  }
-  fetchCart();
-  
-  function renderHtml(itemData) {
-    const productContainer = document.querySelector(".listProduct");
-    productContainer.innerHTML += `
+
+  renderTotal(cartTotal);
+}
+
+fetchCart();
+
+async function getProduct(itemId) {
+  const url = "https://v2.api.noroff.dev";
+  const shopEndpoint = "/gamehub";
+  const productUrl = `${url}${shopEndpoint}/${itemId}`;
+  const response = await fetch(productUrl);
+  const product = await response.json();
+  return product.data;
+}
+
+function renderHtml(itemData) {
+  const productContainer = document.querySelector(".listProduct");
+  productContainer.innerHTML += `
       <div class="product">
         <img src="${itemData.image.url}" alt="${itemData.title}" />
         <h1>${itemData.title}</h1>
@@ -30,4 +36,11 @@ function fetchCart() {
         <p>${itemData.price}</p>
       </div>
       `;
-  }
+}
+
+function renderTotal(total) {
+  const totalContainer = document.querySelector("#cartTotal");
+  totalContainer.innerHTML += `
+  <p>Subtotal: ${total}</p>
+  `;
+}

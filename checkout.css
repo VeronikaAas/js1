@@ -9,14 +9,14 @@ img {
     display: block;
 }
 
-h1, p {
-    
+.listProduct {
+    float: left;
+    font-weight: 500;
+    font-size: 1rem;
+    flex: 1; 
+    width: 40%;
+    margin-left: 30px;
 }
-
-.text-container,  img {
-    text-align: center;
-  }
-
 
 .btn {
     background-color: darkorange;
@@ -34,12 +34,18 @@ form {
     align-items: center;
     max-width: 400px;
     margin: 50px auto;
-    padding: 20px;
+    padding: 60px;
     background-color: #333;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   
+#cartTotal p {
+    color: hotpink;
+    font-size: larger;
+}
+
+
   label {
     color: hotpink;
     font-size: 18px;

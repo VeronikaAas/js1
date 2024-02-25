@@ -21,10 +21,11 @@ function renderHtml(itemData) {
   <div class="product">
     <img src="${itemData.image.url}" alt="${itemData.title}" />
     <h1>${itemData.title}</h1>
-    <p>${itemData.description}</p>
-    <p>${itemData.price}</p>
-    <p>${itemData.ageRating}</p>
-    <button class="btn">Add to cart</button>
+    <h2> ${itemData.description}</h2>
+    <p>Price: ${itemData.discountedPrice}</p>
+    <p>Age rating: ${itemData.ageRating}</p>
+    <p>Year of release: ${itemData.released}</p>
+    <p>Genre: ${itemData.genre}</p>
   </div>
   `;
 }
