@@ -28,8 +28,6 @@ closeCart.addEventListener('click', () => {
                 <div class="price">${product.price}</div>
                 <div class="discountedPrice">${product.discountedPrice}</div>
                 <button class="addCart">Add To Cart</button>`;
-
-                let image = newProduct.querySelector('img')
                 listProductHTML.appendChild(newProduct);
             });
         }
@@ -59,9 +57,6 @@ closeCart.addEventListener('click', () => {
             <button class="addToCart">Add To Cart</button>
             `;
             listProductHTML.appendchild(productHTML);
-            productHTML.querySelector('addToCart').addEventListener('click', () => {
-                addToCart(product_id);
-            });
         }
     };
 
