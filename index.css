@@ -36,3 +36,39 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 900px) {
+    .listProduct {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        flex-wrap: wrap;
+    }
+
+    h1, h2, h3, p {
+        text-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .listProduct {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        flex-wrap: wrap;
+    }
+    h1, h2, h3, p {
+        text-wrap: wrap;
+    }
+}
+  @media screen and (max-width: 600px) {
+    ul {
+        display: none;
+    }
+    .dropdown {
+        display: inline-block;
+        margin-left: 25%;
+    }
+    h1, h2, h3, p {
+        text-wrap: wrap;
+    }
+  }

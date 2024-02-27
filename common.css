@@ -291,17 +291,22 @@ body.showCart .container{
 .listCart::-webkit-scrollbar{
     width: 0;
 }
-@media only screen and (max-width: 992px) {
-    .listProduct{
+@media only screen and (max-width: 900px) {
+    .listProduct {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    h1, h2, h3, p {
+        text-wrap: wrap;
     }
 }
 
-
-/* mobile */
-@media only screen and (max-width: 768px) {
-    .listProduct{
+@media only screen and (max-width: 700px) {
+    .listProduct {
         grid-template-columns: repeat(2, 1fr);
+    }
+    h1, h2, h3, p {
+        text-wrap: wrap;
     }
 }
   @media screen and (max-width: 600px) {
@@ -311,5 +316,8 @@ body.showCart .container{
     .dropdown {
         display: inline-block;
         margin-left: 25%;
+    }
+    h1, h2, h3, p {
+        text-wrap: wrap;
     }
   }
